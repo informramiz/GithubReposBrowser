@@ -6,11 +6,13 @@ import dagger.android.AndroidInjectionModule
 import io.informramiz.githubreposbrowser.GithubReposBrowserApplication
 import io.informramiz.githubreposbrowser.di.modules.ActivityModule
 import io.informramiz.githubreposbrowser.di.modules.AppModule
+import javax.inject.Singleton
 
 
 /**
  * Created by Ramiz Raja on 07/08/2018.
  */
+@Singleton
 @Component(modules = [AndroidInjectionModule::class, AppModule::class, ActivityModule::class])
 interface AppComponent {
     @Component.Builder
