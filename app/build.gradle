@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -53,4 +54,10 @@ dependencies {
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Dagger
+    implementation "com.google.dagger:dagger-android:${rootProject.ext.dagger_version}"
+    implementation "com.google.dagger:dagger-android-support:${rootProject.ext.dagger_version}" // if you use the support libraries
+    kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.dagger_version}"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.dagger_version}"
 }
