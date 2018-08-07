@@ -2,17 +2,24 @@ package io.informramiz.githubreposbrowser
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.findNavController
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import io.informramiz.githubreposbrowser.di.Injectable
 
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), Injectable {
+class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector {
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
     @Inject
     lateinit var apiService: GithubApiService
 
@@ -41,4 +48,6 @@ class MainActivity : AppCompatActivity(), Injectable {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
 }

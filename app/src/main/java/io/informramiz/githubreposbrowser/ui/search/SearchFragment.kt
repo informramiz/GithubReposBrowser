@@ -8,12 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 
 import io.informramiz.githubreposbrowser.R
+import io.informramiz.githubreposbrowser.data.GithubApiService
+import io.informramiz.githubreposbrowser.di.Injectable
+import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), Injectable {
+    @Inject
+    lateinit var githubApiService: GithubApiService
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
