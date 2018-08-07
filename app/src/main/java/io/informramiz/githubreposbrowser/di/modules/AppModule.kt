@@ -2,6 +2,7 @@ package io.informramiz.githubreposbrowser.di.modules
 
 import dagger.Module
 import dagger.Provides
+import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,5 +27,11 @@ class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(GithubApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAppExecutors(): AppExecutors {
+        return AppExecutors
     }
 }

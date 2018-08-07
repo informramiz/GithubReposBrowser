@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import io.informramiz.githubreposbrowser.di.Injectable
 
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector
     @Inject
     lateinit var apiService: GithubApiService
 
+    @Inject
+    lateinit var appExecutors: AppExecutors
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector
         fab.setOnClickListener { view ->
             findNavController(R.id.my_nav_host_fragment).navigate(R.id.action_searchFragment_to_repoFragment)
         }
+
+        appExecutors.mainThread.run { findNavController(R.id.my_nav_host_fragment).navigate(R.id.action_searchFragment_to_repoFragment) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
