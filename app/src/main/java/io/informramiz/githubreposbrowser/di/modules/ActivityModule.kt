@@ -1,6 +1,8 @@
 package io.informramiz.githubreposbrowser.di.modules
 
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
+import io.informramiz.githubreposbrowser.MainActivity
 
 
 /**
@@ -8,6 +10,7 @@ import dagger.Module
  */
 
 @Module
-class ActivityModule {
-
+abstract class ActivityModule {
+    @ContributesAndroidInjector
+    abstract fun contributeMainActivity(): MainActivity
 }
