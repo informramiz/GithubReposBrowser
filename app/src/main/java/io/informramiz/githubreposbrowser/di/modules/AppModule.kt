@@ -13,7 +13,7 @@ import javax.inject.Singleton
  * Created by Ramiz Raja on 07/08/2018.
  */
 
-@Module
+@Module(includes = [ViewModelModule::class])
 class AppModule {
     companion object {
         const val GITHUB_API_LINK = "https://api.github.com/"
