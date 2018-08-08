@@ -65,6 +65,11 @@ dependencies {
 
     //Navigation Controller
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
-    // use -ktx for Kotlin
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version" // use -ktx for Kotlin
+
+    //life cycle components
+    implementation "android.arch.lifecycle:runtime:${rootProject.ext.lifecycle_version}"
+    implementation "android.arch.lifecycle:extensions:${rootProject.ext.lifecycle_version}"
+    implementation "android.arch.lifecycle:common-java8:${rootProject.ext.lifecycle_version}" //java8 support
+    kapt "android.arch.lifecycle:compiler:${rootProject.ext.lifecycle_version}"
 }
