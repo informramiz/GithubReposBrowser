@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-
 import io.informramiz.githubreposbrowser.R
 import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import io.informramiz.githubreposbrowser.di.Injectable
-import java.util.concurrent.Executors
 import javax.inject.Inject
 
 /**
