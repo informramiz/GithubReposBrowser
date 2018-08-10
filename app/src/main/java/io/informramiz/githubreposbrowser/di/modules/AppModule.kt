@@ -3,6 +3,7 @@ package io.informramiz.githubreposbrowser.di.modules
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import io.informramiz.githubreposbrowser.BuildConfig
 import io.informramiz.githubreposbrowser.GithubReposBrowserApplication
 import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.remote.GithubApiService
@@ -18,15 +19,11 @@ import javax.inject.Singleton
 
 @Module(includes = [ViewModelModule::class])
 class AppModule {
-    companion object {
-        const val GITHUB_API_LINK = "https://api.github.com/"
-    }
-
     @Singleton
     @Provides
     fun provideGithubService(): GithubApiService {
         return Retrofit.Builder()
-                .baseUrl(GITHUB_API_LINK)
+                .baseUrl(BuildConfig.HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(GithubApiService::class.java)
