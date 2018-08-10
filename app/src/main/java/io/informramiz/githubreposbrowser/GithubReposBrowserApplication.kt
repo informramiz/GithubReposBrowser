@@ -7,6 +7,7 @@ import android.app.Service
 import android.content.BroadcastReceiver
 import dagger.android.*
 import io.informramiz.githubreposbrowser.di.AppInjector
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -23,6 +24,10 @@ class GithubReposBrowserApplication : Application(), HasActivityInjector, HasSer
     override fun onCreate() {
         super.onCreate()
         AppInjector.init(this)
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
     override fun activityInjector() = activityInjector

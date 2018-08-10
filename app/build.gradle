@@ -86,4 +86,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:${rootProject.ext.lifecycle_version}"
     implementation "android.arch.lifecycle:common-java8:${rootProject.ext.lifecycle_version}" //java8 support
     kapt "android.arch.lifecycle:compiler:${rootProject.ext.lifecycle_version}"
+
+    //timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
