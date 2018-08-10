@@ -26,6 +26,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            dimension "default"
+            buildConfigField 'String', 'HOST', "\"https://api.github.com/\""
+        }
+
+        prod {
+            dimension "default"
+            buildConfigField 'String', 'HOST', "\"https://api.github.com/\""
+        }
+    }
 }
 
 dependencies {
