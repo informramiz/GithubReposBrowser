@@ -1,4 +1,4 @@
-package io.informramiz.githubreposbrowser.data
+package io.informramiz.githubreposbrowser.data.remote
 
 
 /**

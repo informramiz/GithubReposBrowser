@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import io.informramiz.githubreposbrowser.GithubReposBrowserApplication
 import io.informramiz.githubreposbrowser.common.AppExecutors
-import io.informramiz.githubreposbrowser.data.GithubApiService
+import io.informramiz.githubreposbrowser.data.remote.GithubApiService
 import io.informramiz.githubreposbrowser.di.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

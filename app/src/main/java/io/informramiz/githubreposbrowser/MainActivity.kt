@@ -1,19 +1,12 @@
 package io.informramiz.githubreposbrowser
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.findNavController
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
 import io.informramiz.githubreposbrowser.base.BaseActivity
 import io.informramiz.githubreposbrowser.common.AppExecutors
-import io.informramiz.githubreposbrowser.data.GithubApiService
-import io.informramiz.githubreposbrowser.di.Injectable
+import io.informramiz.githubreposbrowser.data.remote.GithubApiService
 
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
