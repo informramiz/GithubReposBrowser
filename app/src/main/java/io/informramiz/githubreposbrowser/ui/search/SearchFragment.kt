@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import io.informramiz.githubreposbrowser.R
+import io.informramiz.githubreposbrowser.base.BaseFragment
 import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import io.informramiz.githubreposbrowser.di.Injectable
@@ -19,7 +20,7 @@ import javax.inject.Inject
  * A simple [Fragment] subclass.
  *
  */
-class SearchFragment : Fragment(), Injectable {
+class SearchFragment : BaseFragment() {
     @Inject
     lateinit var githubApiService: GithubApiService
 

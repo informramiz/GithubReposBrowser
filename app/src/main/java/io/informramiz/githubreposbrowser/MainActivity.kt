@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import io.informramiz.githubreposbrowser.base.BaseActivity
 import io.informramiz.githubreposbrowser.common.AppExecutors
 import io.informramiz.githubreposbrowser.data.GithubApiService
 import io.informramiz.githubreposbrowser.di.Injectable
@@ -17,10 +18,7 @@ import io.informramiz.githubreposbrowser.di.Injectable
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
+class MainActivity : BaseActivity() {
     @Inject
     lateinit var apiService: GithubApiService
 
@@ -35,8 +33,6 @@ class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector
         fab.setOnClickListener { view ->
             findNavController(R.id.my_nav_host_fragment).navigate(R.id.action_searchFragment_to_repoFragment)
         }
-
-        appExecutors.mainThread.run { findNavController(R.id.my_nav_host_fragment).navigate(R.id.action_searchFragment_to_repoFragment) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,6 +50,4 @@ class MainActivity : AppCompatActivity(), Injectable, HasSupportFragmentInjector
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
 }
