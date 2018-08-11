@@ -105,7 +105,9 @@ abstract class NetworkBoundResource<DesiredResultType, ApiResponseType>
     fun asLiveData() = resultMediatorLiveData as LiveData<Resource<DesiredResultType>>
 
     @WorkerThread
-    protected fun processResponse(response: ApiSuccessResponse<ApiResponseType>) = response.body
+    protected fun processResponse(response: ApiSuccessResponse<ApiResponseType>): ApiResponseType {
+        return response.body
+    }
 
     @WorkerThread
     protected abstract fun saveCallResult(item: ApiResponseType)
