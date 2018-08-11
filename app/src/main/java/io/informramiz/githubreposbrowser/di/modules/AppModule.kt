@@ -19,6 +19,8 @@ import io.informramiz.githubreposbrowser.data.repository.AppDataRepository
 import io.informramiz.githubreposbrowser.data.repository.DataRepository
 import io.informramiz.githubreposbrowser.data.utils.retrofit.LiveDataCallAdapterFactory
 import io.informramiz.githubreposbrowser.di.qualifiers.ApplicationContext
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -33,10 +35,18 @@ class AppModule {
     @Singleton
     @Provides
     fun provideGithubService(): GithubApiService {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        val httpClient = OkHttpClient.Builder()
+                .addInterceptor(httpLoggingInterceptor)
+                .build()
+
         return Retrofit.Builder()
                 .baseUrl(BuildConfig.HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory())
+                .client(httpClient)
                 .build()
                 .create(GithubApiService::class.java)
     }
