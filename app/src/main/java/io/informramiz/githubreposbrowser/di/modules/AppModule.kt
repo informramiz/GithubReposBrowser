@@ -17,6 +17,7 @@ import io.informramiz.githubreposbrowser.data.datasources.remote.RemoteDataSourc
 import io.informramiz.githubreposbrowser.data.remote.GithubApiService
 import io.informramiz.githubreposbrowser.data.repository.AppDataRepository
 import io.informramiz.githubreposbrowser.data.repository.DataRepository
+import io.informramiz.githubreposbrowser.data.utils.retrofit.LiveDataCallAdapterFactory
 import io.informramiz.githubreposbrowser.di.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -35,6 +36,7 @@ class AppModule {
         return Retrofit.Builder()
                 .baseUrl(BuildConfig.HOST)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(LiveDataCallAdapterFactory())
                 .build()
                 .create(GithubApiService::class.java)
     }
