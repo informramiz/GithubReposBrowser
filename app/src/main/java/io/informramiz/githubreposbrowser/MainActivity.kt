@@ -6,7 +6,7 @@ import android.view.MenuItem
 import androidx.navigation.findNavController
 import io.informramiz.githubreposbrowser.base.BaseActivity
 import io.informramiz.githubreposbrowser.common.AppExecutors
-import io.informramiz.githubreposbrowser.data.remote.GithubApiService
+import io.informramiz.githubreposbrowser.data.datasources.remote.GithubApiService
 
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject

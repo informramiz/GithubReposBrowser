@@ -14,7 +14,7 @@ import io.informramiz.githubreposbrowser.data.datasources.local.preferences.AppP
 import io.informramiz.githubreposbrowser.data.datasources.local.preferences.PreferencesHelper
 import io.informramiz.githubreposbrowser.data.datasources.remote.AppRemoteDataSource
 import io.informramiz.githubreposbrowser.data.datasources.remote.RemoteDataSource
-import io.informramiz.githubreposbrowser.data.remote.GithubApiService
+import io.informramiz.githubreposbrowser.data.datasources.remote.GithubApiService
 import io.informramiz.githubreposbrowser.data.repository.AppDataRepository
 import io.informramiz.githubreposbrowser.data.repository.DataRepository
 import io.informramiz.githubreposbrowser.data.utils.retrofit.LiveDataCallAdapterFactory

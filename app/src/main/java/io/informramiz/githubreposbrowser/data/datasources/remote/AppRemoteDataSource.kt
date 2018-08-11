@@ -1,7 +1,6 @@
 package io.informramiz.githubreposbrowser.data.datasources.remote
 
 import io.informramiz.githubreposbrowser.common.AppExecutors
-import io.informramiz.githubreposbrowser.data.remote.GithubApiService
 import javax.inject.Inject
 
 

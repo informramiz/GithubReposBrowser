@@ -10,7 +10,7 @@ import android.widget.Toast
 import io.informramiz.githubreposbrowser.R
 import io.informramiz.githubreposbrowser.base.BaseFragment
 import io.informramiz.githubreposbrowser.common.AppExecutors
-import io.informramiz.githubreposbrowser.data.remote.GithubApiService
+import io.informramiz.githubreposbrowser.data.datasources.remote.GithubApiService
 import javax.inject.Inject
 
 /**
