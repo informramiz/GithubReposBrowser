@@ -39,7 +39,8 @@ class LiveDataCallAdapterFactory : CallAdapter.Factory() {
             throw IllegalArgumentException("Call return type (ApiResponse) must be parameterized")
         }
 
-        //now get the upper most type in type nesting (T)
+        //now get the upper most type in type nesting (e.g. LiveData<ApiResponse<T>> -> T. So T is
+        //upper/inner most type in main return type)
         val bodyType = getParameterUpperBound(0, observableType)
         return LiveDataCallAdapter<Any>(bodyType)
     }
