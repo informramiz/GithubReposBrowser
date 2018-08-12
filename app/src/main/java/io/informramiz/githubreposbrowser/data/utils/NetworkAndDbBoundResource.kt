@@ -15,7 +15,7 @@ import io.informramiz.githubreposbrowser.data.datasources.remote.ApiSuccessRespo
  * Created by Ramiz Raja on 10/08/2018.
  * A generic class to hold resource backed by both local database and network
  */
-abstract class NetworkBoundResource<DesiredResultType, ApiResponseType>
+abstract class NetworkAndDbBoundResource<DesiredResultType, ApiResponseType>
 @MainThread constructor(private val appExecutors: AppExecutors) {
 
     private val resultMediatorLiveData = MediatorLiveData<Resource<DesiredResultType>>()

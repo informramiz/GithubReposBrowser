@@ -6,7 +6,7 @@ import io.informramiz.githubreposbrowser.data.datasources.local.LocalDataSource
 import io.informramiz.githubreposbrowser.data.datasources.remote.*
 import io.informramiz.githubreposbrowser.data.models.Repo
 import io.informramiz.githubreposbrowser.data.utils.AbsentLiveData
-import io.informramiz.githubreposbrowser.data.utils.NetworkBoundResource
+import io.informramiz.githubreposbrowser.data.utils.NetworkAndDbBoundResource
 import io.informramiz.githubreposbrowser.data.utils.Resource
 import timber.log.Timber
 import javax.inject.Inject
@@ -21,7 +21,7 @@ open class AppDataRepository @Inject constructor(
         val remoteDataSource: RemoteDataSource,
         val githubApiService: GithubApiService) : DataRepository {
     override fun search(query: String): LiveData<Resource<List<Repo>>> {
-        return object : NetworkBoundResource<List<Repo>, ReposSearchResponse>(appExecutors) {
+        return object : NetworkAndDbBoundResource<List<Repo>, ReposSearchResponse>(appExecutors) {
             override fun saveCallResult(item: ReposSearchResponse) {
                 Timber.i("Items loaded are $item")
             }
